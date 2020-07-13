@@ -16,6 +16,8 @@ public class FormularioTeste {
 	private menuPage menu = new menuPage();
 
 	private FormularioPage page = new FormularioPage();
+	
+	//TESTES PARA GIT
 
 	@Before
 	public void inicializarAppium() throws MalformedURLException {
