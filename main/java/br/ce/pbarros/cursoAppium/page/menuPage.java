@@ -1,16 +1,29 @@
 package br.ce.pbarros.cursoAppium.page;
 
-import br.ce.pbarros.cursoAppium.core.DSL;
+import br.ce.pbarros.cursoAppium.core.BasePage;
 
-public class menuPage {
+public class menuPage extends BasePage {
 	
 	
-	private DSL dsl = new DSL();
 	
 	public void acessarFormulario() {
-		dsl.clicarPorTexto("Formulário");
+		clicarPorTexto("Formulário");
 	}
 	
+	public void acessarSplash() {
+		clicarPorTexto("Splash");
+	}
 	
+	public void acessarAlertas() {
+		clicarPorTexto("Alertas");
+	}
+	
+	public void acessarAbas() {
+		clicarPorTexto("Abas");
+	}
+	
+	public void acessarAccordion() {
+		clicarPorTexto("Accordion");
+	}
 
 }

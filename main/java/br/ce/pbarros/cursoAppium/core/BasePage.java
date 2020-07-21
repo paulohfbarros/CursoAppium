@@ -2,9 +2,14 @@ package br.ce.pbarros.cursoAppium.core;
 
 import static br.ce.pbarros.cursoAppium.core.DriverFactory.getDriver;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 
-public class DSL {
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+
+public class BasePage {
 	
 	public void escrever(By by, String texto) {
 	      getDriver().findElement(by).sendKeys(texto);		
@@ -19,7 +24,7 @@ public class DSL {
 	}
 	
 	public void clicarPorTexto(String texto) {
-		getDriver().findElement(By.xpath("//*[@text='"+texto+"']"));
+		clicar(By.xpath("//*[@text='"+texto+"']"));
 	}
 	
 	public void selecionarCombo(By by, String valor) {
@@ -33,5 +38,13 @@ public class DSL {
 		return getDriver().findElement(by).getAttribute("checked").equals("true");
 	}
 	
-		
+	public boolean existeElementoPorTexto(String texto) {
+		List<MobileElement> elementos = getDriver().findElements(By.xpath("//*[@text='"+texto+"']"));
+		return elementos.size() > 0;
+	}
+	
+	public void tap(int x, int y) {
+		new TouchAction(getDriver()).tap(x,y).perform();
+	}
+
 }
