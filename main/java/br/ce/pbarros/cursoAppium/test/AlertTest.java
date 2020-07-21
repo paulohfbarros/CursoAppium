@@ -54,7 +54,7 @@ public class AlertTest extends BaseTest {
 		//deve verificar mensagem não está presente 
 		Assert.assertFalse(page.existeElementoPorTexto("Pode clicar no OK ou fora da caixa para sair"));
 		
-		//
+		//testes com commit
 	}
 	
 	
