@@ -3,7 +3,9 @@ package br.ce.pbarros.cursoAppium.page;
 import org.openqa.selenium.By;
 
 import br.ce.pbarros.cursoAppium.core.BasePage;
+import br.ce.pbarros.cursoAppium.core.DriverFactory;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 
 public class FormularioPage extends BasePage {
 
@@ -38,6 +40,21 @@ public class FormularioPage extends BasePage {
 	public boolean isSwitchMarcado() {
 		return isCheckMarcado(MobileBy.AccessibilityId("switch"));
 	}
+	
+	public void clicarSeekBar(double posicao) {
+	int delta = 50;
+	MobileElement seek = DriverFactory.getDriver().findElement(MobileBy.AccessibilityId("slid"));
+	int y = seek.getLocation().y + (seek.getSize().height / 2);
+	System.out.println(y);
+	
+	int xinicial = seek.getLocation().x + delta;
+	int x = (int) (xinicial + ((seek.getSize().width - 2 * delta) * posicao));
+	System.out.println(x);
+	
+	tap(x, y);
+	
+	
+	}
 
 	public void clicarSalvar() {
 		clicarPorTexto("SALVAR");
@@ -64,5 +81,7 @@ public class FormularioPage extends BasePage {
 	public String obterSwitchcadastrado() {
 		return obterTexto(By.xpath("//android.widget.TextView[starts-with(@text, 'Checkbox:')]"));
 	}
+	
+	
 
 }
